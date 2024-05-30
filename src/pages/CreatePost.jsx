@@ -18,7 +18,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch(process.env.REACT_APP_API_URL, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/dalle`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
