@@ -28,7 +28,7 @@ const Home = () => {
       setLoading(true);
 
       try {
-        const response = await fetch(`${VITE_APP_API_URL}/api/v1/post`, {
+        const response = await fetch("http://54.163.196.178:5555/api/v1/post", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
