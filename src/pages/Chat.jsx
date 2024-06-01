@@ -91,8 +91,8 @@ const Chat = () => {
 
     return (
         <div className='flex w-full'>
-            <ChatMenu chats={allChats} clearChat={clearChat} isOpen={isOpen} setIsOpen={setIsOpen} />
-            <div className={`w-full ${isOpen ? 'sm:pl-[200px]' : 'sm:pl-0'} h-full min-h-[calc(100vh-130px)] mx-auto max-w-5xl flex flex-col justify-between p-4`}>
+            <ChatMenu chats={allChats} setResponseData={setResponseData} clearChat={clearChat} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <div className={`w-full ${isOpen && 'xs:pl-[200px]'} h-full min-h-[calc(100vh-130px)] mx-auto max-w-5xl flex flex-col justify-between p-4`}>
 
                 <div className="flex-grow">
                     <h2 className="text-2xl font-bold mb-4 text-center">Ask Chat-GPT</h2>

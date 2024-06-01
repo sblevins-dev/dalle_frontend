@@ -1,11 +1,31 @@
+
 import React, { useState } from 'react'
 
-const ChatMenu = ({ chats, clearChat, isOpen, setIsOpen }) => {
-    
+const ChatMenu = ({ chats, setResponseData, clearChat, isOpen, setIsOpen }) => {
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     }
+
+    const getChat = async (chatId) => {
+        try {
+            const response = await fetch(`http://localhost:5555/api/v1/chat/find?id=${chatId}`)
+
+            if (response.ok) {
+                const result = await response.json();
+
+                console.log(result)
+                setResponseData([{
+                    prompt: result.prompt,
+                    response: result.response
+                }])
+            }
+        } catch (err) {
+            alert("Error getting chat")
+        }
+
+    }
+
     return (
         <>
             {isOpen ? (
@@ -50,6 +70,7 @@ const ChatMenu = ({ chats, clearChat, isOpen, setIsOpen }) => {
                             <li
                                 key={chat._id}
                                 className='hover:bg-[#f1f1f1] cursor-pointer rounded p-2'
+                                onClick={() => getChat(chat._id)}
                             >
                                 {chat.prompt}
                             </li>
