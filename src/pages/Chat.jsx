@@ -11,12 +11,7 @@ const Chat = () => {
     const [allChats, setAllChats] = useState([]);
     const [userText, setUserText] = useState("");
     const [generating, setGenerating] = useState(false);
-    const [responseData, setResponseData] = useState([
-        {
-            prompt: "hello",
-            response: "hello"
-        }
-    ]);
+    const [responseData, setResponseData] = useState([]);
 
     const handleChange = (e) => {
         setUserText(e.target.value);
