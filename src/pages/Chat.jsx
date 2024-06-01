@@ -29,7 +29,7 @@ const Chat = () => {
             try {
                 setGenerating(true);
 
-                const response = await fetch("http://localhost:5555/api/v1/chat", {
+                const response = await fetch("http://54.163.196.178:5555/api/v1/chat", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const Chat = () => {
     useEffect(() => {
         const getChats = async () => {
             try {
-                const response = await fetch("http://localhost:5555/api/v1/chat", {
+                const response = await fetch("http://54.163.196.178:5555/api/v1/chat", {
                   method: 'GET',
                   headers: {
                     'Content-Type': 'application/json'
