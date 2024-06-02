@@ -4,7 +4,7 @@ import { preview } from '../assets'
 import { getRandomPrompt } from '../utils'
 import { FormField, Loader } from '../components'
 
-const CreatePost = () => {
+const CreatePost = ({ mode }) => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: '',
@@ -80,10 +80,10 @@ const CreatePost = () => {
   return (
     <section className='max-w-7xl mx-auto'>
       <div>
-        <h1 className='font-extrabold text-[#222328] text-[32px]'>
+        <h1 className={`${mode == "light" ? "text-[#222328]" : "text-white"} font-extrabold  text-[32px]`}>
           Create
         </h1>
-        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>
+        <p className={`${mode == "light" ? "text-[#666e75]" : "text-text-dark"} mt-2 text-[16px] max-w-[500px]`}>
           Create imaginative and visually stunning images through DALL-E AI and share them with the community
         </p>
       </div>
@@ -97,6 +97,7 @@ const CreatePost = () => {
             placeholder="John Doe"
             value={form.name}
             handleChange={handleChange}
+            mode={mode}
           />
           <FormField
             LabelName="Prompt"
@@ -107,6 +108,7 @@ const CreatePost = () => {
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
+            mode={mode}
           />
 
           <div className='relative bg-gray-50 border border-gray-300 text-gray-900 text-sm 
@@ -139,14 +141,14 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImg}
-            className='text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+            className='text-white bg-green font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
           >
             {generatingImg ? 'Generating...' : 'Generate'}
           </button>
         </div>
 
         <div className='mt-10'>
-          <p className='mt-2 text-[#666e75] text-[14px]'>
+          <p className={`${mode == "light" ? "text-[#666e75]" : "text-text-dark"} mt-2 text-[14px]`}>
             Once you have created the image, you can share it with others in the community
           </p>
           <button

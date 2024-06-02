@@ -1,9 +1,11 @@
 import download from './download.png';
-import logo from './logo.svg';
+import darkLogo from './darkLogo.svg';
+import lightLogo from './lightLogo.svg';
 import preview from './preview.png';
 
 export {
   download,
-  logo,
+  darkLogo,
+  lightLogo,
   preview,
 };

@@ -3,7 +3,7 @@ import { FormField } from '../components'
 import { useLocation } from 'react-router-dom';
 import ChatMenu from '../components/ChatMenu';
 
-const Chat = () => {
+const Chat = ({ mode }) => {
     const location = useLocation();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -86,17 +86,17 @@ const Chat = () => {
 
     return (
         <div className='flex w-full'>
-            <ChatMenu chats={allChats} setResponseData={setResponseData} clearChat={clearChat} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <ChatMenu chats={allChats} setResponseData={setResponseData} clearChat={clearChat} isOpen={isOpen} setIsOpen={setIsOpen} mode={mode} />
             <div className={`w-full ${isOpen && 'xs:pl-[200px]'} h-full min-h-[calc(100vh-130px)] mx-auto max-w-5xl flex flex-col justify-between p-4`}>
 
                 <div className="flex-grow">
-                    <h2 className="text-2xl font-bold mb-4 text-center">Ask Chat-GPT</h2>
+                    <h2 className={`${mode == "light" ? "" : "text-white"} text-2xl font-bold mb-4 text-center`}>Ask Chat-GPT</h2>
                     {responseData && responseData.map(res => (
                         <>
-                            <p className='inline-block bg-[#f1f1f1] p-4 rounded mb-4 text-left justify-end'>
+                            <p className={`${mode == "light" ? "bg-[#f1f1f1]" : "bg-nav-dark text-white"} inline-block p-4 rounded mb-4 text-left justify-end`}>
                                 {res.prompt}
                             </p>
-                            <p className="mb-4 max-w-3xl text-left px-5">
+                            <p className={`${mode == "light" ? "" : "text-text-dark"} mb-4 max-w-3xl text-left px-5`}>
                                 {res.response}
                             </p>
                         </>
@@ -111,6 +111,7 @@ const Chat = () => {
                         placeholder="e.g. Fun fact about the Roman Empire"
                         value={userText}
                         handleChange={handleChange}
+                        mode={mode}
                     />
                     {generating ? (
                         <div className='flex items-center justify-center'>
@@ -131,7 +132,7 @@ const Chat = () => {
                     )}
 
 
-                    <p className='text-sm mt-2 text-center'>
+                    <p className={`${mode == "light" ? "" : "text-text-dark"} text-sm mt-2 text-center`}>
                         ChatGPT can make mistakes. Check important info.
                     </p>
                 </div>

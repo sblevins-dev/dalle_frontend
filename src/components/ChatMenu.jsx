@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 
-const ChatMenu = ({ chats, setResponseData, clearChat, isOpen, setIsOpen }) => {
+const ChatMenu = ({ chats, setResponseData, clearChat, isOpen, setIsOpen, mode }) => {
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -29,7 +29,7 @@ const ChatMenu = ({ chats, setResponseData, clearChat, isOpen, setIsOpen }) => {
     return (
         <>
             {isOpen ? (
-                <div className='absolute bg-[#f9fafe] z-2 h-full top-0 left-0 border-r border-gray-400  p-2 min-w-[200px] max-w-[300px]'>
+                <div className={`${mode == "light" ? "bg-white" : "bg-nav-dark"} absolute z-2 h-full top-0 left-0 border-r border-gray-400  p-2 min-w-[200px] max-w-[300px]`}>
                     <div className='flex justify-between mt-2'>
                         <svg
                             className='cursor-pointer mr-2'
@@ -69,7 +69,7 @@ const ChatMenu = ({ chats, setResponseData, clearChat, isOpen, setIsOpen }) => {
                         {chats.length > 0 && chats.map(chat => (
                             <li
                                 key={chat._id}
-                                className='hover:bg-[#f1f1f1] cursor-pointer rounded p-2'
+                                className={`${mode == "light" ? "hover:bg-[#f1f1f1]" : "text-text-dark hover:bg-main-dark"}  cursor-pointer rounded p-2`}
                                 onClick={() => getChat(chat._id)}
                             >
                                 {chat.prompt}

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FormField = ({ labelName, type, name, placeholder, value, handleChange,
-  isSurpriseMe, handleSurpriseMe }) => {
+  isSurpriseMe, handleSurpriseMe, mode }) => {
   return (
     <div>
       <div className='flex items-center gap-2 mb-2'>
@@ -15,7 +15,7 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange,
           <button
             type="button"
             onClick={handleSurpriseMe}
-            className='font-semibold text-xs bg-[#ECECF1] py-1 px-2 rounded-[5px] text-black'
+            className={`${mode == "light" ? "bg-[#ECECF1]" : "bg-text-dark"} font-semibold text-xs py-1 px-2 rounded-[5px] text-black`}
           >
             Surprise Me
           </button>
@@ -29,9 +29,9 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange,
         value={value}
         onChange={handleChange}
         required
-        className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
-        focus:ring-[#4649ff] 
-        focus:border-[#4649ff] outline-none block w-full p-3' />
+        className={`${mode == "light" ? "bg-white" : "bg-input-dark text-white"} border border-b-dark text-sm rounded-lg 
+        focus:ring-accent 
+        focus:border-accent outline-none block w-full p-3`} />
     </div>
   )
 }
