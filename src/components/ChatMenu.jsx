@@ -29,7 +29,7 @@ const ChatMenu = ({ chats, setResponseData, clearChat, isOpen, setIsOpen }) => {
     return (
         <>
             {isOpen ? (
-                <div className='absolute bg-[#f9fafe] z-2 h-full top-0 left-0 border-r border-gray-400  p-2 min-w-[200px]'>
+                <div className='absolute bg-[#f9fafe] z-2 h-full top-0 left-0 border-r border-gray-400  p-2 min-w-[200px] max-w-[300px]'>
                     <div className='flex justify-between mt-2'>
                         <svg
                             className='cursor-pointer mr-2'
