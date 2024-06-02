@@ -9,7 +9,7 @@ const ChatMenu = ({ chats, setResponseData, clearChat, isOpen, setIsOpen }) => {
 
     const getChat = async (chatId) => {
         try {
-            const response = await fetch(`http://54.163.196.178:5555/api/v1/chat/find?id=${chatId}`)
+            const response = await fetch(`https://openaiclone.stephen-blevins.dev/api/v1/chat/find?id=${chatId}`)
 
             if (response.ok) {
                 const result = await response.json();
