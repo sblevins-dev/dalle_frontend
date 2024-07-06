@@ -15,7 +15,7 @@ This React + Vite application mimics the functionality of DALL-E 3 by allowing u
 - Tailwind CSS: Utility-first CSS framework for styling.
 
 ### Installation and Setup
-- Clone the repository: git clone https://github.com/your/repository.git
+- Clone the repository: git clone https://github.com/sblevins-dev/dalle_frontend.git
 - Install dependencies: npm install
 - Set up environment variables required for OpenAI API authentication.
 - Start the development server: npm run dev
